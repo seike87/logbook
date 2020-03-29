@@ -1,27 +1,16 @@
+{% load static %}
 <!doctype html>
 <html lang="de">
     <head>
-        <title>Ausgangsbuch</title>
+        <title>
+            {% block title %}
+            {% endblock %}
+        </title>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+        <link rel="stylesheet" href="{% static 'css/bulma.css' %}">
     </head>
     <body>
-        <div class="page-header">
-            <h1><a href="/">Ausgangsbuch</a></h1>
-        </div>
-        <div class="content container">
-            <div class="row">
-                <div class="col-md-8">
-                {% block content %}
-                {% endblock %}
-                </div>
-            </div>
-        </div>
+            {% block content %}
+            {% endblock %}
     </body>
-
-
-
 </html>
