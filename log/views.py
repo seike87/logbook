@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
+from django.utils import timezone
 from datetime import date
 import calendar
 from calendar import HTMLCalendar
@@ -20,3 +21,7 @@ def add_log(request):
         if 'submitted' in request.GET:
             submitted = True
         return render(request, 'log/add_log.html', {'form': form, 'submitted': submitted})
+
+def list_log(request):
+    posts = Logs.objects.filter(datum__lte=timezone.now()).order_by('datum')
+    return render(request, 'log/list_log.html', {'posts': posts})
