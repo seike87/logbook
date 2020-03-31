@@ -17,6 +17,27 @@
                     </div>
                 </div>
             {% endfor %}
+
+
+                 <table class = "table">
+                    <thead>
+                        <tr>
+                            <th>Datum</th>
+                            <th>Name</th>
+                            <th>Vorname</th>
+                        </tr>
+                    </thead>
+                    {% for post in posts %}
+                    <tbody>
+                        <tr>
+                            <td>post.datum</td>
+                            <td>post.name</td>
+                            <td>post.vorname</td>
+                        </tr>
+                    </tbody>
+                    {% endfor %}
+                </table>
+
         </div>
     </div>
 </div>
