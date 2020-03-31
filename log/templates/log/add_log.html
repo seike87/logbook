@@ -8,13 +8,13 @@
 
 {% block content %}
 <div class="container">
-    <h3 class="title is-size3">Bitte tragen Sie die Daten ein</h3>
 
 {% if submitted %}
     <p class="success">Der Eintrag wurde erfolgreich eingetragen. Vielen Dank!</p>
 {% else %}
     <div class="columns.is-mobile">
         <div class="column is-half is-offset-one-quarter">
+            <b>Bitte tragen Sie die Daten ein:</b>
             <form action="{% url 'add_log' %}" method="post">
                 {% csrf_token %}
                 {% for field in form %}
@@ -25,14 +25,14 @@
                             </div>
                     </div>
                 {% endfor %}
-                        <div class="field is-grouped">
-                            <div class="control">
-                                <button type="submit" class="button is-link">Eintragen</button>
-                            </div>
-                            <div class="control">
-                                <button type="reset" class="button is-link is-light">Abbrechen</button>
-                            </div>
+                    <div class="field is-grouped">
+                        <div class="control">
+                            <button type="submit" class="button is-link">Eintragen</button>
                         </div>
+                        <div class="control">
+                            <button type="reset" class="button is-link is-light">Abbrechen</button>
+                        </div>
+                    </div>
             </form>
         </div>
     </div>
