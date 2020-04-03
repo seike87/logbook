@@ -10,7 +10,11 @@
 <div class="container">
 
 {% if submitted %}
-    <p class="success">Der Eintrag wurde erfolgreich eingetragen. Vielen Dank!</p>
+    <div class="columns.is-mobile">
+        <div class="column is-half is-offset-one-quarter">
+            <strong>Der Eintrag wurde erfolgreich eingetragen. Vielen Dank!</strong> Wollen Sie einen <a href="{% url 'add_log' %}">weiteren Eintrag hinzufügen?</a>
+        </div>
+    </div>
 {% else %}
     <div class="columns.is-mobile">
         <div class="column is-half is-offset-one-quarter">

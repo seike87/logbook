@@ -23,5 +23,5 @@ def add_log(request):
         return render(request, 'log/add_log.html', {'form': form, 'submitted': submitted})
 
 def list_log(request):
-    posts = Logs.objects.filter(datum__lte=timezone.now()).order_by('datum')
+    posts = Logs.objects.filter(datum__lte=date.today()).order_by('datum')
     return render(request, 'log/list_log.html', {'posts': posts})

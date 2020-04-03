@@ -1,9 +1,10 @@
 from django.db import models
 from django.utils import timezone
+from datetime import date
 # Create your models here.
 
 class Logs(models.Model):
-    datum = models.DateTimeField(default=timezone.now)
+    datum = models.DateField(default=date.today)
     name = models.CharField('Name', max_length=100)
     vorname = models.CharField('Vorname', max_length=100)
     ziel = models.CharField('Ziel', max_length=500)
