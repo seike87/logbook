@@ -8,13 +8,13 @@ class LogForm(ModelForm):
         model = Logs
         fields = '__all__'
         widgets = {
-            'datum': forms.DateInput(attrs={'class': 'input'}),
+            'datum': forms.DateInput(attrs={'class': 'input', 'type': 'date'}),
             'name': forms.TextInput(attrs={'class': 'input', 'type': 'text'}),
             'vorname': forms.TextInput(attrs={'class': 'input', 'type': 'text'}),
             'ziel': forms.TextInput(attrs={'class': 'input', 'type': 'text'}),
             'grund': forms.TextInput(attrs={'class': 'input', 'type': 'text'}),
-            'von': forms.TimeInput(attrs={'class': 'input'}),
-            'bis': forms.TimeInput(attrs={'class': 'input'}),
+            'von': forms.TimeInput(attrs={'class': 'input', 'type': 'time'}),
+            'bis': forms.TimeInput(attrs={'class': 'input', 'type': 'time'}),
             'kostenstelle': forms.TextInput(attrs={'class': 'input', 'type': 'text'}),
             'projekt': forms.TextInput(attrs={'class': 'input', 'type': 'text'}),
                   }
