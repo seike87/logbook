@@ -15,16 +15,20 @@
             <div class="navbar-brand">
                 <a class="navbar-item" href="{% url 'add_log' %}"><h3 class="title is-size3">Ausgangsbuch</h3></a>
 
-                <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                </a>
+                <div class="navbar-burger burger" data-target="Options">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </div>
-
-            <div id="navbarBasicExample" class="navbar-menu">
+            <div id="Options" class="navbar-menu">
                 <div class="navbar-end">
                     <a class="navbar-item" href="{% url 'add_log' %}">Eintrag hinzufügen</a>
-                    <a class="navbar-item" href="{% url 'list_log' %}">Einträge anzeigen</a>
+                        {% if user.is_authenticated %}
+                            <a class="navbar-item" href="{% url 'list_log' %}">Einträge anzeigen</a>
+                        {% else %}
+                            <a class="navbar-item" href="{% url 'login' %}">Anmelden</a>
+                        {% endif %}
                 </div>
             </div>
         </nav>

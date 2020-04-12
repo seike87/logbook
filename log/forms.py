@@ -9,7 +9,7 @@ class LogForm(ModelForm):
         fields = '__all__'
         widgets = {
             'datum': forms.DateInput(attrs={'class': 'input', 'type': 'date'}),
-            'name': forms.TextInput(attrs={'class': 'input', 'type': 'text'}),
+            'name': forms.TextInput(attrs={'class': 'input', 'type': 'text', 'placeholder': 'Name'}),
             'vorname': forms.TextInput(attrs={'class': 'input', 'type': 'text'}),
             'ziel': forms.TextInput(attrs={'class': 'input', 'type': 'text'}),
             'grund': forms.TextInput(attrs={'class': 'input', 'type': 'text'}),
