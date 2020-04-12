@@ -1,9 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.utils import timezone
+from django.contrib.auth.decorators import login_required
 from datetime import date
-import calendar
-from calendar import HTMLCalendar
 from .models import Logs
 from .forms import LogForm
 
@@ -22,6 +21,7 @@ def add_log(request):
             submitted = True
         return render(request, 'log/add_log.html', {'form': form, 'submitted': submitted})
 
+@login_required
 def list_log(request):
     posts = Logs.objects.filter(datum__lte=date.today()).order_by('datum')
     return render(request, 'log/list_log.html', {'posts': posts})
