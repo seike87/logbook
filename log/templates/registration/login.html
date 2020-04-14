@@ -1,24 +1,51 @@
 {% extends "log/base.html" %}
 
 {% block content %}
-    {% if form.errors %}
-        <p>Your username and password didn't match. Please try again.</p>
-    {% endif %}
+<div class="container">
+    <div class="columns.is-mobile">
+        <div class="column is-half is-offset-one-quarter">
+        {% if form.errors %}
+            <p>Your username and password didn't match. Please try again.</p>
+        {% endif %}
 
-    <form method="post" action="{% url 'login' %}">
-    {% csrf_token %}
-        <table>
-        <tr>
-            <td>{{ form.username.label_tag }}</td>
-            <td>{{ form.username }}</td>
-        </tr>
-        <tr>
-            <td>{{ form.password.label_tag }}</td>
-            <td>{{ form.password }}</td>
-        </tr>
-        </table>
+        <form method="post" action="{% url 'login' %}">
+        {% csrf_token %}
+            <div class="field">
+                <label class="label">{{ form.username.label_tag }}</label>
+                <div class="control">
+                    {{ form.username }}
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">{{ form.password.label_tag }}</label>
+                <div class="control">
+                    {{ form.password }}
+                </div>
+            </div>
+            <table>
+                <tr>
+                    <td>{{ form.username.label_tag }}</td>
+                    <td>{{ form.username }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.password.label_tag }}</td>
+                    <td>{{ form.password }}</td>
+                </tr>
+            </table>
 
-        <input type="submit" value="login" />
-        <input type="hidden" name="next" value="{{ next }}" />
-    </form>
+            <div class="field is-grouped">
+                <div class="control">
+                    <button type="submit" value="login" class="button is-link">Anmelden</button>
+                    <input type="hidden" name="next" value="{{ next }}" />
+                </div>
+                <div class="control">
+                    <button type="reset" class="button is-link is-light">Abbrechen</button>
+                </div>
+            </div>
+            <input type="submit" value="login" />
+            <input type="hidden" name="next" value="{{ next }}" />
+        </form>
+        </div>
+    </div>
+</div>
 {% endblock content %}
