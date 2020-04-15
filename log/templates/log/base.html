@@ -26,6 +26,7 @@
                     <a class="navbar-item" href="{% url 'add_log' %}">Eintrag hinzufügen</a>
                         {% if user.is_authenticated %}
                             <a class="navbar-item" href="{% url 'list_log' %}">Einträge anzeigen</a>
+                            <a class="navbar-item" href="{% url 'logout' %}">Abmelden</a>
                         {% else %}
                             <a class="navbar-item" href="{% url 'login' %}">Anmelden</a>
                         {% endif %}

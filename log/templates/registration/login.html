@@ -10,40 +10,28 @@
 
         <form method="post" action="{% url 'login' %}">
         {% csrf_token %}
-            <div class="field">
-                <label class="label">{{ form.username.label_tag }}</label>
-                <div class="control">
-                    {{ form.username }}
+            <div class="field is-horizontal">
+                <div class="field-label is-normal">
+                    <label class="label">{{ form.username.label_tag }}</label>
+                    <label class="label">{{ form.password.label_tag }}</label>
                 </div>
-            </div>
-            <div class="field">
-                <label class="label">{{ form.password.label_tag }}</label>
-                <div class="control">
-                    {{ form.password }}
-                </div>
-            </div>
-            <table>
-                <tr>
-                    <td>{{ form.username.label_tag }}</td>
-                    <td>{{ form.username }}</td>
-                </tr>
-                <tr>
-                    <td>{{ form.password.label_tag }}</td>
-                    <td>{{ form.password }}</td>
-                </tr>
-            </table>
+                <div class="field-body">
+                    <div class="field">
+                        <p class="control">{{ form.username }}</p>
+                        <p class="control">{{ form.password }}</p>
+                    </div>
 
-            <div class="field is-grouped">
-                <div class="control">
-                    <button type="submit" value="login" class="button is-link">Anmelden</button>
-                    <input type="hidden" name="next" value="{{ next }}" />
-                </div>
-                <div class="control">
-                    <button type="reset" class="button is-link is-light">Abbrechen</button>
                 </div>
             </div>
-            <input type="submit" value="login" />
-            <input type="hidden" name="next" value="{{ next }}" />
+                <div class="field is-grouped">
+                    <div class="control">
+                        <button type="submit" value="login" class="button is-link">Anmelden</button>
+                        <input type="hidden" name="next" value="{{ next }}" />
+                    </div>
+                    <div class="control">
+                        <button type="reset" class="button is-link is-light">Abbrechen</button>
+                    </div>
+                </div>
         </form>
         </div>
     </div>
