@@ -2,7 +2,7 @@
 
 {% block content %}
 <div class="container">
-    <div class="columns.is-mobile">
+    <div class="columns.is-mobile is-centered">
         <div class="column is-half is-offset-one-quarter">
         {% if form.errors %}
             <p>Your username and password didn't match. Please try again.</p>
@@ -10,41 +10,24 @@
 
         <form method="post" action="{% url 'login' %}">
         {% csrf_token %}
-            <div class="field is-horizontal">
-                <div class="field-label is-normal">
-                    <label class="label">{{ form.username.label_tag }}</label>
-                    <label class="label">{{ form.password.label_tag }}</label>
-                </div>
-                <div class="field-body">
-                    <div class="field">
-                        <p class="control">{{ form.username }}</p>
-                        <p class="control">{{ form.password }}</p>
+            <div class="field">
+                <label class="label">{{ form.username.label_tag }}</label>
+                    <div class="control">
+                        {{ form.username }}
                     </div>
-
-<div class="field">
-    <label class="label">{{ form.username.label_tag }}</label>
-  <div class="control">
-    <input class="input" type="text" placeholder="e.g Alex Smith">
-  </div>
-</div>
-
-<div class="field">
-    <label class="label">{{ form.password.label_tag }}</label>
-  <div class="control">
-    <input class="input" type="email" placeholder="e.g. alexsmith@gmail.com">
-  </div>
-</div>
+            </div>
+            <div class="field">
+                <label class="label">{{ form.password.label_tag }}</label>
+                    <div class="control">
+                        {{ form.password }}
+                    </div>
+            </div>
+            <div class="field is-grouped">
+                <div class="control">
+                    <button type="submit" value="login" class="button is-link">Anmelden</button>
+                    <input type="hidden" name="next" value="{{ next }}" />
                 </div>
             </div>
-                <div class="field is-grouped">
-                    <div class="control">
-                        <button type="submit" value="login" class="button is-link">Anmelden</button>
-                        <input type="hidden" name="next" value="{{ next }}" />
-                    </div>
-                    <div class="control">
-                        <button type="reset" class="button is-link is-light">Abbrechen</button>
-                    </div>
-                </div>
         </form>
         </div>
     </div>
