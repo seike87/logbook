@@ -31,9 +31,9 @@ def list_log(request):
 def csv_export(request):
     response = HttpResponse(content_type='text/csv')
     writer = csv.writer(response)
-    writer.writerow(['Datum', 'Name', 'Vorname', 'Ziel', 'Grund', 'Von', 'Bis', 'Kostenstelle', 'Projekt'])
+    writer.writerow(['Eingetragen', 'Datum', 'Name', 'Vorname', 'Ziel', 'Grund', 'Von', 'Bis', 'Kostenstelle', 'Projekt'])
 
-    for log in Logs.objects.all().values_list('datum', 'name', 'vorname', 'ziel', 'grund', 'von', 'bis', 'kostenstelle', 'projekt'):
+    for log in Logs.objects.all().values_list('timestamp', 'datum', 'name', 'vorname', 'ziel', 'grund', 'von', 'bis', 'kostenstelle', 'projekt'):
         writer.writerow(log)
 
     response['Content-Disposition'] = 'attachment; filename="Ausgangsbuch.csv"'

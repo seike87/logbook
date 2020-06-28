@@ -8,6 +8,7 @@ class LogForm(ModelForm):
         model = Logs
         fields = '__all__'
         widgets = {
+            #'zeitstempel' :forms.DateTimeInput(attrs={'class': 'input', 'type': 'datetime-local'})
             'datum': forms.DateInput(attrs={'class': 'input', 'type': 'date'}),
             'name': forms.TextInput(attrs={'class': 'input', 'type': 'text', 'placeholder': 'Name'}),
             'vorname': forms.TextInput(attrs={'class': 'input', 'type': 'text'}),
